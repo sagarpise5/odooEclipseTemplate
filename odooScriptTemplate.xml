@@ -1,10 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xml_all" deleted="false" description="act_window" enabled="true" name="act_window">        
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="act_window" enabled="true" name="act_window">        
         &lt;act_window name="${string}"
 			domain="[('${field}', '${condition}', active_id)]"
 			res_model="${res_model}"
 			src_model="${src_model}"
 			id="act_${unique_id}"/&gt;
-	</template><template autoinsert="true" context="xml_all" deleted="false" description="button_object" enabled="true" name="button_object">&lt;button name="${function_name}" states="${state}" string="${string}" type="object" icon="${icon}"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="button_wizard" enabled="true" name="button_wizard">&lt;button name='%(${wizard_id})d' type='action' string='${string}' states='${state}' icon="${icon}"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="calendar_view" enabled="true" name="calendar_view">&lt;record model="ir.ui.view" id="${object_name}_calendar_view"&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="button_object" enabled="true" name="button_object">&lt;button name="${function_name}" states="${state}" string="${string}" type="object" icon="${icon}"/&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="button_wizard" enabled="true" name="button_wizard">&lt;button name='%(${wizard_id})d' type='action' string='${string}' states='${state}' icon="${icon}"/&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="calendar_view" enabled="true" name="calendar_view">&lt;record model="ir.ui.view" id="${object_name}_calendar_view"&gt;
     &lt;field name="name"&gt;${objectname} Calendar&lt;/field&gt;
     &lt;field name="model"&gt;${objectname}&lt;/field&gt;
     &lt;field name="priority" eval="2"/&gt;
@@ -14,7 +25,10 @@
              &lt;field name="name"/&gt;
         &lt;/calendar&gt;
     &lt;/field&gt;
-&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="complete_view" enabled="true" name="complete_view">
+&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="complete_view" enabled="true" name="complete_view">
             
             &lt;record model="ir.ui.view" id="${object_name}_tree_view"&gt;
                 &lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
@@ -49,7 +63,9 @@
             &lt;/record&gt;
 
 			&lt;menuitem id="${object_name}_menu" name="${objectname}" parent="${cursor}" action="action_${object_name}_tree_view"/&gt;
-</template><template autoinsert="true" context="xml_all" deleted="false" description="complete__view_oe_7" enabled="true" name="complete_view_oe_7">&lt;record id="${object_name}_tree_view" model="ir.ui.view"&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="complete__view_oe_7" enabled="true" name="complete_view_oe_7">&lt;record id="${object_name}_tree_view" model="ir.ui.view"&gt;
 			&lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="type"&gt;tree&lt;/field&gt;
@@ -105,7 +121,10 @@
 			&lt;field name="search_view_id" ref="view_${object_name}_search" /&gt;
 			&lt;!-- &lt;field name="domain"&gt;[('field_name','condition',criteria)]&lt;/field&gt; --&gt;
 			&lt;field name="context"&gt;{}&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view" enabled="true" name="form_view">           &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
+		&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="form_view" enabled="true" name="form_view">           &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
                 &lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
                 &lt;field name="model"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;form&lt;/field&gt;
@@ -114,7 +133,10 @@
                         &lt;field name="name" select="1"/&gt;
                     &lt;/form&gt;
                 &lt;/field&gt;
-            &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_inherit" enabled="true" name="form_view_inherit">		 &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
+            &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="form_view_inherit" enabled="true" name="form_view_inherit">		 &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
                 &lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
                 &lt;field name="model"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;form&lt;/field&gt;
@@ -125,7 +147,10 @@
                         	&lt;field name="${new_field}"/&gt;
                     &lt;/form&gt;
                 &lt;/field&gt;
-            &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_notebook" enabled="true" name="form_view_notebook">           &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
+            &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="form_view_notebook" enabled="true" name="form_view_notebook">           &lt;record model="ir.ui.view" id="${object_name}_form_view"&gt;
                 &lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
                 &lt;field name="model"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;form&lt;/field&gt;
@@ -138,7 +163,10 @@
                         &lt;/notebook&gt;
                     &lt;/form&gt;
                 &lt;/field&gt;
-            &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_oe_7" enabled="true" name="form_view_oe_7">&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
+            &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="form_view_oe_7" enabled="true" name="form_view_oe_7">&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
 			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="priority" eval="8" /&gt;
@@ -155,7 +183,10 @@
 					&lt;/sheet&gt;			
 				&lt;/form&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="graph_view" enabled="true" name="graph_view">&lt;record model="ir.ui.view" id="${object_name}_view_graph"&gt;
+		&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="graph_view" enabled="true" name="graph_view">&lt;record model="ir.ui.view" id="${object_name}_view_graph"&gt;
 			&lt;field name="name"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
@@ -163,7 +194,10 @@
 					&lt;field name="name" /&gt;
 				&lt;/graph&gt;
 			&lt;/field&gt;
-&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="kanban_view" enabled="true" name="kanban_view">&lt;record model="ir.ui.view" id="${object_name}_kanban_view"&gt;
+&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="kanban_view" enabled="true" name="kanban_view">&lt;record model="ir.ui.view" id="${object_name}_kanban_view"&gt;
 			&lt;field name="name"&gt;${objectname} Kanban&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
@@ -214,12 +248,24 @@
 					&lt;/templates&gt;
 				&lt;/kanban&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${object_name}_menu" name="${objectname}" parent="${cursor}" action="action_${object_name}_tree_view"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${object_name}_menu" name="${object_name}" /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="opener_tag" enabled="true" name="openerp_tag">&lt;openerp&gt;
+		&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${object_name}_menu" name="${objectname}" parent="${cursor}" action="action_${object_name}_tree_view"/&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${object_name}_menu" name="${object_name}" /&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="opener_tag" enabled="true" name="openerp_tag">&lt;openerp&gt;
     &lt;data&gt;
     
     
     &lt;/data&gt;
-&lt;/openerp&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="report_dec" enabled="true" name="report_dec">		&lt;report
+&lt;/openerp&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="report_dec" enabled="true" name="report_dec">		&lt;report
             id="${id}"
             model="${objetname}"        
             name="${name}"
@@ -228,7 +274,10 @@
     &lt;!--    auto="False" --&gt;
 	&lt;!--    menu="False" --&gt;
 	&lt;!--    keyword="client_print_multi" --&gt;
-            /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="search_view" enabled="true" name="search_view"> &lt;record id="${object_name}_search_view" model="ir.ui.view"&gt;
+            /&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="search_view" enabled="true" name="search_view"> &lt;record id="${object_name}_search_view" model="ir.ui.view"&gt;
             &lt;field name="name"&gt;${objectname}.search&lt;/field&gt;
             &lt;field name="model"&gt;${objectname}&lt;/field&gt;
             &lt;field name="arch" type="xml"&gt;
@@ -242,7 +291,10 @@
                  &lt;/group&gt;
   				 &lt;/search&gt;
             &lt;/field&gt;
-        &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view" enabled="true" name="tree_view">            &lt;record model="ir.ui.view" id="${object_name}_tree_view"&gt;
+        &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="tree_view" enabled="true" name="tree_view">            &lt;record model="ir.ui.view" id="${object_name}_tree_view"&gt;
                 &lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
                 &lt;field name="model"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;tree&lt;/field&gt;
@@ -251,7 +303,10 @@
                         &lt;field name="name"/&gt;
                     &lt;/tree&gt;
                 &lt;/field&gt;
-            &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view_inherit" enabled="true" name="tree_view_inherit">		&lt;record model="ir.ui.view" id="${object_name}_tree_view"&gt;
+            &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="tree_view_inherit" enabled="true" name="tree_view_inherit">		&lt;record model="ir.ui.view" id="${object_name}_tree_view"&gt;
                 &lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
                 &lt;field name="model"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;tree&lt;/field&gt;
@@ -262,7 +317,10 @@
                         	&lt;field name="${new_field}"/&gt;
                     &lt;/tree&gt;
                 &lt;/field&gt;
-            &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="view_action" enabled="true" name="view_action">            &lt;record model="ir.actions.act_window" id="action_${object_name}_tree_view"&gt;
+            &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="view_action" enabled="true" name="view_action">            &lt;record model="ir.actions.act_window" id="action_${object_name}_tree_view"&gt;
                 &lt;field name="name"&gt;${objectname}&lt;/field&gt;
                 &lt;field name="type"&gt;ir.actions.act_window&lt;/field&gt;
                 &lt;field name="res_model"&gt;${objectname}&lt;/field&gt;
@@ -271,17 +329,25 @@
                 &lt;field name="view_mode"&gt;tree,form&lt;/field&gt;
                 &lt;field name="view_id" ref="${object_name}_tree_view"/&gt;
             &lt;/record&gt;
-</template><template autoinsert="true" context="xml_all" deleted="false" description="wizard_dec" enabled="true" name="wizard_dec">		&lt;wizard
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="wizard_dec" enabled="true" name="wizard_dec">		&lt;wizard
 			string="${string}"
 			model="${objectname}"
 			name="${wizard_name}"
 			id="${wizrd_id}"
 			&lt;!--keyword="client_print_multi" --&gt;
-			/&gt;  </template><template autoinsert="true" context="xml_all" deleted="false" description="wizard_menu" enabled="true" name="wizard_menu">&lt;menuitem 
+			/&gt;  
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="wizard_menu" enabled="true" name="wizard_menu">&lt;menuitem 
 		action="${wizard_id}" 
 		id="${unique_menu_id}" 
 		parent="${parent_menu_id}" 
-		type="wizard"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="wizard_view_oe_7" enabled="true" name="wizard_view_oe_7">&lt;record id="${object_name}_view" model="ir.ui.view"&gt;
+		type="wizard"/&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="wizard_view_oe_7" enabled="true" name="wizard_view_oe_7">&lt;record id="${object_name}_view" model="ir.ui.view"&gt;
 			&lt;field name="name"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
@@ -311,17 +377,26 @@
 			&lt;field name="view_id" ref="${object_name}_view" /&gt;
 			&lt;field name="target"&gt;new&lt;/field&gt;
 			&lt;field name="multi"&gt;True&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="workflow_dec" enabled="true" name="workflow_dec">		&lt;record id="act_${statename}" model="workflow.activity"&gt;
+		&lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="workflow_dec" enabled="true" name="workflow_dec">		&lt;record id="act_${statename}" model="workflow.activity"&gt;
             &lt;field name="wkf_id" ref="wkf"/&gt;
             &lt;!--&lt;field name="flow_start"&gt;True&lt;/field&gt;--&gt;
             &lt;!--&lt;field name="flow_stop"&gt;True&lt;/field&gt;--&gt;
             &lt;field name="name"&gt;${statename}&lt;/field&gt;
             &lt;field name="action"&gt;${function}&lt;/field&gt;
             &lt;field name="kind"&gt;function&lt;/field&gt;
-        &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="workflow_trans" enabled="true" name="workflow_trans">	&lt;record id="${transition_id}" model="workflow.transition"&gt;
+        &lt;/record&gt;
+</template>
+
+<template autoinsert="true" context="xml_all" deleted="false" description="workflow_trans" enabled="true" name="workflow_trans">	&lt;record id="${transition_id}" model="workflow.transition"&gt;
             &lt;field name="act_from" ref="${from_state}"/&gt;
             &lt;field name="act_to" ref="${to_state}"/&gt;
             &lt;field name="signal"&gt;${signal_name}&lt;/field&gt;
 	   &lt;!-- &lt;field name="role_id" ref="${role_id}"/&gt; --&gt;
        &lt;!-- &lt;field name="condition"&gt;${condition_function}&lt;/field&gt; --&gt;
-        &lt;/record&gt;</template></templates>
+        &lt;/record&gt;
+</template>
+
+</templates>
