@@ -6,3 +6,4 @@
 - Now Again
 - Goto Menu(Windows) --> Preferences --> XML --> XML Files --> Editor --> Templates --> "Import.." Button 
 - Select "odooViewTemplate.xml" file --> OK --> OK
+
