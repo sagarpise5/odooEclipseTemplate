@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-
 <templates>
 <template name="__openerp__" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false"  
 	description="OpenERP Module Descriptor File" enabled="true">{
@@ -271,18 +270,20 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 	description="fields.integer_big" enabled="true">'${number}': fields.integer_big('${Label}') 
 </template>
 
-<!--  =================================== Changes upto here ===============================================     --> 
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.many2many" enabled="true" name="fields.many2many">'${data}_ids':fields.one2many('${OpenerpModel}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
+<template name="fields.many2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.many2many" enabled="true">'${data}_ids':fields.one2many('${OpenerpModel}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.many2one" enabled="true" name="fields.many2one">'${data}_id':fields.many2one('${OpenerpModel}', '${Label}', required=${False}), 
+<template name="fields.many2one" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.many2one" enabled="true">'${data}_id':fields.many2one('${OpenerpModel}', '${Label}', required=${False}), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.one2many" enabled="true" name="fields.one2many">'${data}_ids':fields.one2many('${OpenerpModel}', '${field}_id', '${Label}', required=${False}),
+<template name="fields.one2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.one2many" enabled="true">'${data}_ids':fields.one2many('${OpenerpModel}', '${field}_id', '${Label}', required=${False}),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.property" enabled="true" name="fields.property">'property_${name}': fields.property( 
+<template name="fields.property" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.property" enabled="true">'property_${name}': fields.property( 
 	'${OpenerpModel}',
 	type='${many2one}',
 	relation='${openerpmodel}',
@@ -294,142 +295,44 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 	required=${10:True}),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.reference" enabled="true" name="fields.reference">'${ref}': fields.reference('${Document}', 
+<template name="fields.reference" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.reference" enabled="true">'${ref}': fields.reference('${Document}', 
 	selection=[
 	#TODO : define list of model and Label that will be work as a reference
 	('account.account', 'Account'),
 	], size=${128}),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.related" enabled="true" name="fields.related">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${openerpmodel}', string=${Label}'), 
+<template name="fields.related" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.related" enabled="true">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${openerpmodel}', string=${Label}'), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.selection : [(draft, Draft)]" enabled="true" name="fields.selection : [(draft, Draft)]">'${state}':fields.selection([
+<template name="fields.selection" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.selection : [(draft, Draft)]" enabled="true">'${state}':fields.selection([
 	('draft','Draft'),
 	('done','Done'),
 	 ],	'${State}', select=True, readonly=${True}),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.selection [def _select_data]" enabled="true" name="fields.selection [def _select_data]">'${state}': fields.selection(${_get_states}, '${data}', required=${True}), 
+<template name="fields.selection [def _select_data]" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.selection [def _select_data]" enabled="true">'${state}': fields.selection(${_get_states}, '${data}', required=${True}), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.text" enabled="true" name="fields.text">'${note}': fields.text('${Description}'), 
+<template name="fields.text" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.text" enabled="true">'${note}': fields.text('${Description}'), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.time" enabled="true" name="fields.time">#TODO : import time required to get currect time
-'${date}': fields.time('${Time}'),
+<template name="fields.time" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.time" enabled="true">'${date}': fields.time('${Time}'),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="for keyword" enabled="true" id="org.python.pydev.editor.templates.python.for" name="for">for ${cursor}:
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="from keyword" enabled="true" id="org.python.pydev.editor.templates.python.from" name="from">from ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="global keyword" enabled="true" id="org.python.pydev.editor.templates.python.global" name="global">global ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import keyword" enabled="true" id="org.python.pydev.editor.templates.python.import" name="import">import ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def __init__(self):" enabled="true" id="org.python.pydev.editor.templates.python.ini" name="ini">def __init__(self):${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def __init__(self, ${params})" enabled="true" id="org.python.pydev.editor.templates.python.init" name="inip">def __init__(self, ${params}):${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="lambda keyword" enabled="true" id="org.python.pydev.editor.templates.python.lambda" name="lambda">lambda ${args}:${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Main function pattern." enabled="true" id="org.python.pydev.editor.templates.python.main" name="main">if __name__ == '__main__':
-    ${cursor}
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Class" enabled="true" id="org.python.pydev.editor.templates.python.module.class" name="Module: Class">'''
-Created on ${date}
-
-@author: ${user}
-'''
-
-class ${MyClass}(${object}):
-    '''
-    ${classdocs}
-    '''
-
-
-    def __init__(self${params}):
-        '''
-        ${Constructor}
-        '''
-        ${cursor}
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Main" enabled="true" id="org.python.pydev.editor.templates.python.module.main" name="Module: Main">'''
-Created on ${date}
-
-@author: ${user}
-'''
-
-if __name__ == '__main__':
-    ${pass}${cursor}
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Unittest" enabled="true" id="org.python.pydev.editor.templates.python.module.unittest" name="Module: Unittest">'''
-Created on ${date}
-
-@author: ${user}
-'''
-import unittest
-
-
-class Test(unittest.TestCase):
-
-
-    def test${Name}(self):
-        ${pass}${cursor}
-
-
-if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.test${Name}']
-    unittest.main()
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Unittest with setUp and tearDown" enabled="true" id="org.python.pydev.editor.templates.python.module.setup_and_teardown" name="Module: Unittest with setUp and tearDown">'''
-Created on ${date}
-
-@author: ${user}
-'''
-import unittest
-
-
-class Test(unittest.TestCase):
-
-
-    def setUp(self):
-        pass
-
-
-    def tearDown(self):
-        pass
-
-
-    def test${Name}(self):
-        ${pass}${cursor}
-
-
-if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.test${Name}']
-    unittest.main()
-</template>
+=======================================
 
 <template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="New OpenERP Method" enabled="true" name="New OpenERP Method">def ${method}_${name}(self, cr, uid, ids):
 	result = None
 	#TODO : OpenERP Business Process 
 	
 	return result
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="not keyword" enabled="true" id="org.python.pydev.editor.templates.python.not" name="not">not ${cursor}
 </template>
 
 <template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP : model" enabled="true" name="OpenERP : model">from osv import osv
@@ -510,79 +413,6 @@ class ${SendEmail}(wizard.interface):
 ${SendEmail}('${modelprocess}')
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pass keyword" enabled="true" id="org.python.pydev.editor.templates.python.pass" name="pass">pass${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pdb" enabled="true" id="org.python.pydev.editor.templates.python.pdb" name="pd">import pdb;pdb.set_trace()
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print (considers python 2 or 3)" enabled="true" id="org.python.pydev.editor.templates.python.print" name="print">print${space_if_py2}${lparen_if_py3}${cursor}${rparen_if_py3}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print '\n'.join(sorted(dir(value)))" enabled="true" id="org.python.pydev.editor.templates.python.printdir" name="printdir">print${space_if_py2}${lparen_if_py3}'\n'.join(sorted(dir(${cursor})))${rparen_if_py3}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="print current traceback" enabled="true" id="org.python.pydev.editor.templates.python.printexc" name="printexc">import traceback;traceback.print_exc()${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="property creation from inner methods" enabled="true" id="org.python.pydev.editor.templates.python.property_inner" name="property_inner">def ${prop}(): #@NoSelf
-    doc = """${Docstring}""" #@UnusedVariable
-   
-    def fget(self):
-        return self._${prop}
-       
-    def fset(self, value):
-        self._${prop} = value
-       
-    def fdel(self):
-        del self._${prop}
-       
-    return locals()
-   
-${prop} = property(**${prop}())${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="pydevd.settrace()" enabled="true" id="org.python.pydev.editor.templates.python.pydevd" name="pydevd">import pydevd;pydevd.settrace()
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise" enabled="true" id="org.python.pydev.editor.templates.python.raise" name="raise">raise ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise RuntimeError('desc')" enabled="true" id="org.python.pydev.editor.templates.python.raiseruntimeerror" name="raiseruntimeerror">raise RuntimeError('${desc}')${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="return keyword" enabled="true" id="org.python.pydev.editor.templates.python.return" name="return">return ${cursor}
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Call super(current_class, self).current_method()" enabled="true" id="org.python.pydev.editor.templates.python.super" name="super">super(${current_class}, self).${current_method}(${cursor})
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Call superclass.current_method(self)" enabled="true" id="org.python.pydev.editor.templates.python.super_raw" name="super_raw">${superclass}.${current_method}(self${cursor})
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="test" enabled="true" name="test">${name} = Char(${name}${data})
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python" deleted="false" description="Complete test-case module with pyunit" enabled="true" id="org.python.pydev.editor.templates.python.testCase" name="testCase">import unittest
-
-class ${TestCase}(unittest.TestCase):
-    
-    def setUp(self):
-        unittest.TestCase.setUp(self)
-    
-    def tearDown(self):
-        unittest.TestCase.tearDown(self)
-        
-    def test${Met1}(self):
-        ${pass}${cursor}
-        
-if __name__ == '__main__':
-    unittest.main()
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="while keyword" enabled="true" id="org.python.pydev.editor.templates.python.while" name="while">while ${cursor}:
-</template>
-
 <template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard state : end" enabled="true" name="wizard state : end">'${check}': {
 	'actions': [],
 	'result': {'type':'choice','next_state':self.${_check_condition}}
@@ -620,12 +450,8 @@ class $${openerp_wizard}(osv.osv_memory):
      _columns = {
             '$${field}': {'string': '${Label}', 'type': 'many2one', 'relation': 'res.company'},
                 }
-    
 
 $${openerp_wizard}()
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="yield keyword" enabled="true" id="org.python.pydev.editor.templates.python.yield" name="yield">yield ${cursor}
 </template>
 
 </templates>
