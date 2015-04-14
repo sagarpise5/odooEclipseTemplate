@@ -2,260 +2,276 @@
 
 
 <templates>
-	<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="__terp__" enabled="true" name="__terp__">{
-    "name": "${name}",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "${author}",
-    "category": "${category}",
-    "description": """
-    This module provide :
-    """,
-    "init_xml": [],
-    'update_xml': [],
-    'demo_xml': [],
-    'installable': True,
-    'active': False,
-#    'certificate': '${certificate}',
+<template name="__openerp__" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false"  
+	description="OpenERP Module Descriptor File" enabled="true">{
+	"name": "${name_of_module}",
+	"version": "1.0",
+	"depends": ["base"],
+	"author": "${author}",
+	'website':'${website}',
+	"category": "${category}",
+	"description": """
+	This module provide :
+	'${ModuleDescription}',
+	""",
+	"init_xml": [],
+	"update_xml": [],
+	"demo_xml": [],
+	"installable": True,
+	"active": False,
+	"auto_install": False,
+#	"images": [${images}],
+#	"data": [${data}],
+#	"demo": [${demo}],
+#	"test": [${test}],     
 }
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_columns" enabled="true" name="_columns">_columns = {
-		
-				}
+<template name="_columns" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="_columns" enabled="true" >_columns = {
+	${cursor}
+}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_constraints" enabled="true" name="_constraints">def ${_check_metho}(self, cr, uid, ids): 
-#TODO : check condition and return boolean accordingly
+<template name="_constraints" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Set openerp constraints" enabled="true">def ${_check_constraints_method}(self, cr, uid, ids): 
+	# Check condition and return boolean accordingly
+	${cursor}
 	return True
-_constraints = [(${_check_metho}, 'Error: Invalid Message', ['${field_name}']), ] 
+	
+_constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_name}']), ] 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_date_name" enabled="true" name="_date_name">_date_name = '${data}' 
+<template name="_sql_constraints" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="_sql_constraints" enabled="true">_sql_constraints = [('name_uniq', 'unique(name)', 'The Name must be unique!'),]
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_defaults" enabled="true" name="_defaults">_defaults = {  
-	'${datee}': lambda *a: time.strftime('%Y-%m-%d'),  
+<template name="_defaults" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Set default value for field" enabled="true">_defaults = {  
+		'${datee}': lambda *a: time.strftime('%Y-%m-%d'),  
 	}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_description" enabled="true" name="_description">_description = '${__doc__}' 
+<template name="_description" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Description of model" enabled="true">_description = '${model_description}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_inherit" enabled="true" name="_inherit">_inherit = '${openerpmodel}' 
-#Do not touch _name it must be same as _inherit
-#_name = '${openerpmodel}'
+<template name="_inherit" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Chnage in existing model" enabled="true">_inherit = '${model_name}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_inherits" enabled="true" name="_inherits">_inherits = {  '${openerpmodel}': '${model_id}'   }
+<template name="_inherits" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="inherits from existing model" enabled="true" >_inherits = {'${model_name}': '${model_id}'}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_name" enabled="true" name="_name">_name = '${openerp}' 
+<template name="_name" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Name of model" enabled="true" >_name = '${model_name}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_order" enabled="true" name="_order">_order = '${id}' 
+<template name="_order" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Sort record by selected column " enabled="true">_order = '${id}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_parent_store" enabled="true" name="_parent_store">_parent_store = ${False} 
+<template name="_parent_store" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="_parent_store" enabled="true">_parent_store = ${False} 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_rec_name" enabled="true" name="_rec_name">_rec_name = '${name}' 
+<template name="_rec_name" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="_rec_name used in many2field to display name" enabled="true">_rec_name = '${column_name}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_sequence" enabled="true" name="_sequence">_sequence = ${data} 
+<template name="_sequence" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="_sequence" enabled="true">_sequence = ${data} 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_sql_constraints" enabled="true" name="_sql_constraints">_sql_constraints = [ 	('name_uniq', 'unique (name)', 'The Name of the OpenERPModel must be unique !'), 	 ]
+<template name="_table" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Name of table create in database" enabled="true">_table = '${table_name}' 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="_table" enabled="true" name="_table">_table = '${openerp_model}' 
-</template>
-
-<template autoinsert="false" context="org.python.pydev.editor.templates.python.modules" deleted="false" description="Module: Empty" enabled="true" id="org.python.pydev.editor.templates.python.module.empty" name="&lt;Empty&gt;">'''
-Created on ${date}
-
-@author: ${user}
-'''
-${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="and keyword" enabled="true" id="org.python.pydev.editor.templates.python.and" name="and">and ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="assert keyword" enabled="true" id="org.python.pydev.editor.templates.python.assert" name="assert">assert ${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="break keyword" enabled="true" id="org.python.pydev.editor.templates.python.break" name="break">break${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Class definition (simple)" enabled="true" id="org.python.pydev.editor.templates.python.class" name="class">class ${class}:${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Class definition (subclass)" enabled="true" id="org.python.pydev.editor.templates.python.classo" name="classs">class ${class}(${object}):${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="continue keyword" enabled="true" id="org.python.pydev.editor.templates.python.continue" name="continue">continue${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (global)" enabled="true" id="org.python.pydev.editor.templates.python.def" name="def">def ${method}():${cursor}
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def action_workflow" enabled="true" name="def action_workflow">def action_cancel(self, cr, uid, ids, *args): 
-#TODO : Business Process 	return result 
-	result = True
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def copy" enabled="true" name="def copy">def copy(self, cr, uid, id, default=None, context=None): 
-	res_id = super(${ModelName}, self).copy(cr, uid, id, default, context)
-	return res_id 
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def create" enabled="true" name="def create">def create(self, cr, uid, vals, context={}):
-	res_id = super(${ModelName}, self).create(cr, uid, vals, context)
-	return res_id 
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def default_get" enabled="true" name="def default_get">def default_get(self, cr, uid, fields_list, context=None):
-	values = {} 
-	return values
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_get" enabled="true" name="def fields_get">def fields_get(self, cr, uid, fields=None, context=None):
-	return super(${ModelName}, self).fields_get(cr, uid, fields, context, read_access) 
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_view_get" enabled="true" name="def fields_view_get">def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False):
-	res = super(${ModelName}, self).fields_view_get(cr, uid, view_id, view_type, context, toolbar)
+<template name="def action_cancel" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="def action_cancel" enabled="true">def action_cancel(self, cr, uid, ids, context=None):
+	res = {}
 	return res
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_get" enabled="true" name="def name_get">def name_get(self, cr, uid, ids, context=None):
-	#TODO : search on name field or _res_name fields 
-	#and make a result [(id, name), (id, name), ...] 
+<template name="def copy" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP copy method" enabled="true">def copy(self, cr, uid, id, default=None, context=None):
+	# Duplicate record with given id updating it with default values.
+	${cursor}
+	return super(${model_name}, self).copy(cr, uid, id, default, context)
+</template>
+
+<template name="def create" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP create method" enabled="true">def create(self, cr, uid, vals, context={}):
+	# Creates a new record for the model.
+	${cursor}
+	return super(${model_name}, self).create(cr, uid, vals, context)
+</template>
+
+<template name="def default_get" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="To get default values for the object." enabled="true">def default_get(self, cr, uid, fields_list, context=None):
+	""" To get default values for the object.
+	@param self: The object pointer.
+	@param cr: A database cursor
+	@param uid: ID of the user currently logged in
+	@param fields: List of fields for which we want default values
+	@param context: A standard dictionary
+	@return: A dictionary which of fields with values.
+	"""
+	res = super(${model_name}, self).default_get(cr, uid, fields, context=context)
+	${cursor}
+	return res
+</template>
+
+<template name="def fields_get" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Return the definition of each field." enabled="true">def fields_get(self, cr, uid, fields=None, context=None):
+	# Return the definition of each field.
+	${cursor}
+	return super(${model_name}, self).fields_get(cr, uid, fields, context, read_access) 
+</template>
+
+<template name="def fields_view_get" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Get the detailed composition of the requested view like fields, model, view architecture" 
+	enabled="true">def fields_view_get(self, cr, uid, view_id = None, view_type = 'form', context = None, toolbar = False, submenu = False):
+	res = super(${ModelName}, self).fields_view_get(cr, uid, view_id, view_type, context = context, toolbar = toolbar, submenu = submenu)
+	${cursor}
+	return res
+</template>
+
+<template name="def name_get" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Returns a textual representation for the records" enabled="true">def name_get(self, cr, uid, ids, context=None):
+	# Search on name field or _res_name fields and make a result [(id, name), (id, name), ...] 
 	res = self.read(cr, uid, ids, [self._rec_name], context, load='_classic_write')]
+	${cursor}
 	return res 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_search" enabled="true" name="def name_search">def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=80):
-	#TODO: make a search on specific fields and get ids     
-	 if not args:
-        args=[]
-    if not context:
-        context={}
-    ids = []
-    if name:
-        ids = self.search(cr, uid, [('code','ilike',name)]+ args, limit=limit)
-    if not ids:
-        ids = self.search(cr, uid, [('name',operator,name)]+ args, limit=limit)
-    self.name_get(cr, uid, ids, context=context) 
+<template name="def name_search" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Search for records that have a display name matching the given `name` pattern when compared with the given `operator`, while also matching the optional search domain (`args`)." 
+	enabled="true">def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=80):
+	# Make a search on specific fields and get ids
+	if not args:
+		args=[]
+	if not context:
+		context={}
+	ids = []
+	if name:
+		ids = self.search(cr, uid, [('code','ilike',name)]+ args, limit=limit)
+	if not ids:
+		ids = self.search(cr, uid, [('name',operator,name)]+ args, limit=limit)
+	self.name_get(cr, uid, ids, context=context) 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def on_change" enabled="true" name="def on_change">def onchange_${fields}(self, cr, uid, ${fields}, context=None):
-	#TODO : compute new values from the db/system
-	return {   'field_1': res1   'field_2': res }
+<template name="def on_change" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Perform an onchange on the given field." enabled="true">def onchange_${fieldname}(self, cr, uid, ${fields}, context={}):
+	${cursor}
+	return {${field_to_change}: ${value_to_set}}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def read" enabled="true" name="def read">def read(self, cr, uid, ids, fields=None, context=None, load='_classic_read'):
-	res = super(${ModelName}, self).read(cr, uid, ids, fields, context) 
-	#TODO : process on result
+<template name="def read" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Reads the requested fields for the records" 
+	enabled="true">def read(self, cr, uid, ids, fields=None, context=None, load='_classic_read'):
+	res = super(${model_name}, self).read(cr, uid, ids, fields, context) 
+	# Process on res
+	${cursor}
 	return res 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def search" enabled="true" name="def search">def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
-	#TODO : process on args before search
-	res = super(${ModelName}, self).search(cr, uid, args, offset, limit, order, context, count)
-	#TODO : process
+<template name="def search" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Searches for records based on the args" 
+	enabled="true">def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
+	# Process on args before search
+	${cursor}
+	res = super(${model_name}, self).search(cr, uid, args, offset, limit, order, context, count)
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def unlink" enabled="true" name="def unlink">def unlink(self, cr, uid, ids, context=None):
-	#TODO: process before delete resource
-	res = super(${ModelName}, self).unlink(cr, uid, ids, context)
-	return res 
+<template name="def unlink" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Deletes the records of the current set" enabled="true">def unlink(self, cr, uid, ids, context=None):
+	# Process before delete records from ids
+	${cursor}
+	res super(${model_name}, self).unlink(cr, uid, ids, context)
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def write" enabled="true" name="def write">def write(self, cr, uid, ids, vals, context=None):
-	#TODO: process before updating resource
-	res = super(${ModelName}, self).write(cr, uid, ids, vals, context)
-	return res 
+<template name="def write" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Updates all records in the current set with the provided values." 
+	enabled="true">def write(self, cr, uid, ids, vals, context=None):
+	# Process before updates records from ids
+	${cursor}
+	return super(${model_name}, self).write(cr, uid, ids, vals, context)
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (class)" enabled="true" id="org.python.pydev.editor.templates.python.defc" name="defc">def ${method}(self):${cursor}
+<template name="domain" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : domain" enabled="true">domain=[('${state}','=','${done}'),]
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Method definition (class - with parameters)" enabled="true" id="org.python.pydev.editor.templates.python.defp" name="defp">def ${method}(self, ${params}):${cursor}
+<template name="help" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : help" enabled="true">help='${HelpAboutField}',
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="del keyword" enabled="true" id="org.python.pydev.editor.templates.python.del" name="del">del ${cursor}
+<template name="readonly" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : readonly" enabled="true">readonly=True,
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="elif keyword" enabled="true" id="org.python.pydev.editor.templates.python.elif" name="elif">elif${cursor}
+<template name="required" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : required" enabled="true">required=True,
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="else keyword" enabled="true" id="org.python.pydev.editor.templates.python.else" name="else">else${cursor}
+<template name="select" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : select" enabled="true">select = True,
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="equals and not equals" enabled="true" id="org.python.pydev.editor.templates.python.eq" name="eq">def __eq__(self, o):
-    if isinstance(o, ${current_class}):
-        ${pass}${cursor}
-
-    return False
-
-def __ne__(self, o):
-	return not self == o
+<template name="store true" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : store" enabled="true">store = True,
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : domain" enabled="true" name="Field Attribute : domain">domain=[('${state}','=','${done}'),]
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : help" enabled="true" name="Field Attribute : help">help='${HelpAboutField}',
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : readonly" enabled="true" name="Field Attribute : readonly">readonly=True,
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : required" enabled="true" name="Field Attribute : required">required=True,
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : select" enabled="true" name="Field Attribute : select">select = True,
-</template>
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : store" enabled="true" name="Field Attribute : store">store={
-	#TODO : define model and function call for store field 
-	'${field_name}': (_get_invoice_from_line, None, 50),
+<template name="store function call" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : store" enabled="true">store={
+	'${model_name}': (lambda self, cr, uid, ids, c={}: ids, [${field_name}], 10),
+	# 'model_name': (_method_return_ids, [field_name], 10),
 	}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field States" enabled="true" name="Field States">states={'${draft}':[('readonly',${False})]}
+<template name="states" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="Field Attribute : States" enabled="true">states={'${draft}':[('readonly',${False})]}
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.binary" enabled="true" name="fields.binary">'${file}':fields.binary('${Label}', filters=${None}), 
+<template name="fields.binary" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.binary" enabled="true">'${file}':fields.binary('${Label}', filters=${None}), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.boolean" enabled="true" name="fields.boolean">'${name}':fields.boolean('${Label}', required=${False}), 
+<template name="fields.boolean" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.boolean" enabled="true">'${name}':fields.boolean('${Label}', required=${False}), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.char" enabled="true" name="fields.char">'${name}':fields.char('${Label}', size=${64}, required=${False}, readonly=${False}),
+<template name="fields.char" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.char" enabled="true">'${name}':fields.char('${Label}', size=${64}, required=${False}, readonly=${False}),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.date" enabled="true" name="fields.date">#TODO : import time required to get currect date
-'${d_ate}': fields.date('${Date}'), 
+<template name="fields.date" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.date" enabled="true">'${date}': fields.date('${Date}'), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.datetime" enabled="true" name="fields.datetime">#TODO : import time required to get currect datetime
-'${datetime}': fields.datetime('${Date}'), 
+<template name="fields.datetime" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.datetime" enabled="true">'${datetime}': fields.datetime('${Date}'), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.float" enabled="true" name="fields.float">'${number}': fields.float('${Label}', digits=(${16}, int(config['price_accuracy'])),
+<template name="fields.float" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.float" enabled="true">'${number}': fields.float('${Label}', digits=(${16}, int(config['price_accuracy'])),
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.function" enabled="true" name="fields.function">'${data}': fields.function(${_function_call}, method=True, type='${float}' string='${Label}', store=${True}), 
+<template name="fields.function" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.function" enabled="true">'${data}': fields.function(${_function_call}, method=True, type='${float}' string='${Label}', store=${True}), 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.integer" enabled="true" name="fields.integer">'${number}': fields.integer('${Label}') 
+<template name="fields.integer" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.integer" enabled="true">'${number}': fields.integer('${Label}') 
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.integer_big" enabled="true" name="fields.integer_big">'${number}': fields.integer_big('${Label}') 
+<template name="fields.integer_big" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="fields.integer_big" enabled="true">'${number}': fields.integer_big('${Label}') 
 </template>
+
+<!--  =================================== Changes upto here ===============================================     --> 
 
 <template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.many2many" enabled="true" name="fields.many2many">'${data}_ids':fields.one2many('${OpenerpModel}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
 </template>
