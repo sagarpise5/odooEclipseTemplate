@@ -271,22 +271,22 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 </template>
 
 <template name="fields.many2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.many2many" enabled="true">'${data}_ids':fields.one2many('${OpenerpModel}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
+	description="fields.many2many" enabled="true">'${data}_ids':fields.one2many('${model_name}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
 </template>
 
 <template name="fields.many2one" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.many2one" enabled="true">'${data}_id':fields.many2one('${OpenerpModel}', '${Label}', required=${False}), 
+	description="fields.many2one" enabled="true">'${data}_id':fields.many2one('${model_name}', '${Label}', required=${False}), 
 </template>
 
 <template name="fields.one2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.one2many" enabled="true">'${data}_ids':fields.one2many('${OpenerpModel}', '${field}_id', '${Label}', required=${False}),
+	description="fields.one2many" enabled="true">'${data}_ids':fields.one2many('${model_name}', '${field}_id', '${Label}', required=${False}),
 </template>
 
 <template name="fields.property" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
 	description="fields.property" enabled="true">'property_${name}': fields.property( 
-	'${OpenerpModel}',
+	'${model_name}',
 	type='${many2one}',
-	relation='${openerpmodel}',
+	relation='${model_name}',
 	string='${Label}',
 	method=True,
 	view_load=True,
@@ -304,7 +304,7 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 </template>
 
 <template name="fields.related" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.related" enabled="true">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${openerpmodel}', string=${Label}'), 
+	description="fields.related" enabled="true">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${model_name}', string=${Label}'), 
 </template>
 
 <template name="fields.selection" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
@@ -326,24 +326,19 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 	description="fields.time" enabled="true">'${date}': fields.time('${Time}'),
 </template>
 
-=======================================
-
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="New OpenERP Method" enabled="true" name="New OpenERP Method">def ${method}_${name}(self, cr, uid, ids):
-	result = None
-	#TODO : OpenERP Business Process 
-	
+<template name="def openerp method" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP Method" enabled="true">def ${method_name}(self, cr, uid, ids):
+	result = {}
+	${cursor}
 	return result
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP : model" enabled="true" name="OpenERP : model">from osv import osv
-from osv import fields
+<template name="class OpenERP : model" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP : model" enabled="true">from openerp.osv import fields, osv, orm
 
 class ${ClassName}(osv.osv):
- '''
- Open ERP Model
- '''
-	_name = '${openerpmodel}'
-	_description = '${openerpmodel}'
+	_name = '${model_name}'
+	_description = '${model_name}'
  
 	_columns = {
 			'${name}':fields.char('${data}', size={64}, required={False}, readonly={False}),
@@ -351,7 +346,8 @@ class ${ClassName}(osv.osv):
 ${ClassName}()
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP License" enabled="true" name="OpenERP License">
+<template name="OpenERP License" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP License" enabled="true">
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -375,7 +371,8 @@ ${ClassName}()
 ##############################################################################
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="OpenERP wizard" enabled="true" name="OpenERPwizard">import wizard
+<template name="OpenERPwizard" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="OpenERP wizard" enabled="true">import wizard
 import pooler
 
 class ${SendEmail}(wizard.interface):
@@ -413,45 +410,47 @@ class ${SendEmail}(wizard.interface):
 ${SendEmail}('${modelprocess}')
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard state : end" enabled="true" name="wizard state : end">'${check}': {
+<template name="wizard state : end" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="wizard state : end" enabled="true">'${check}': {
 	'actions': [],
 	'result': {'type':'choice','next_state':self.${_check_condition}}
 	#TODO : define def ${_check_condition}(self, cr, uid, data, context):
 	},
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard States : choice" enabled="true" name="wizard States : choice">'${check}': {
+<template name="wizard States : choice" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="wizard States : choice" enabled="true">'${check}': {
 	'actions': [],
 	'result': {'type':'choice','next_state':self.${_check_condition}}
 	#TODO : define def ${_check_condition}(self, cr, uid, data, context): },
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard States : form" enabled="true" name="wizard States : form">'${form}': {
+<template name="wizard States : form" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="wizard States : form" enabled="true">'${form}': {
 	'actions': [],
 	'result': {'type': 'form', 'arch': form, 'fields': fields, 'state': (('end', 'Cancel'), ('process', 'Process'))},
 	},
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard States : print" enabled="true" name="wizard States : print">'${report}':{
+<template name="wizard States : print" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="wizard States : print" enabled="true">'${report}':{
 	'actions': [],
 	'result': {'type':'print', 'report':'${modelreportname}', 'state':'${end}'}
 	},
 </template>
 
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="wizard_oe_7" enabled="true" name="wizard_oe_7">from osv import osv, fields
+<template name="wizard" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
+	description="wizard OpenERP7" enabled="true">from osv import osv, fields
 from tools.translate import _
 import time
 
-class $${openerp_wizard}(osv.osv_memory):
-    """ OpenERP Wizard  Version 7"""
+class ${wizard_name}(osv.osv_memory):
+	_name = '${model_name}'
+	_columns = {
+			'${field}': {'string': '${Label}', 'type': 'many2one', 'relation': 'res.company'},
+		}
 
-    _name = '$${openerp.wizard}'
-
-     _columns = {
-            '$${field}': {'string': '${Label}', 'type': 'many2one', 'relation': 'res.company'},
-                }
-
-$${openerp_wizard}()
+${wizard_name}()
 </template>
 
 </templates>
