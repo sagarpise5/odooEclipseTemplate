@@ -200,54 +200,54 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 </template>
 
 <template name="domain" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : domain" enabled="true">domain=[('${state}','=','${done}'),]
+	description="Field Attribute : domain" enabled="true">domain = [('${state}','=','${done}'),] 
 </template>
 
 <template name="help" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : help" enabled="true">help='${HelpAboutField}',
+	description="Field Attribute : help" enabled="true">help = '${HelpAboutField}', 
 </template>
 
 <template name="readonly" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : readonly" enabled="true">readonly=True,
+	description="Field Attribute : readonly" enabled="true">readonly = True, 
 </template>
 
 <template name="required" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : required" enabled="true">required=True,
+	description="Field Attribute : required" enabled="true">required = True, 
 </template>
 
 <template name="select" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : select" enabled="true">select = True,
+	description="Field Attribute : select" enabled="true">select = True, 
 </template>
 
 <template name="store true" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : store" enabled="true">store = True,
+	description="Field Attribute : store" enabled="true">store = True, 
 </template>
 
 <template name="store function call" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : store" enabled="true">store={
-	'${model_name}': (lambda self, cr, uid, ids, c={}: ids, [${field_name}], 10),
+	description="Field Attribute : store" enabled="true">store = {
+	'${model_name}': (lambda self, cr, uid, ids, c = {}: ids, [${field_name}], 10),
 	# 'model_name': (_method_return_ids, [field_name], 10),
 	}
 </template>
 
 <template name="states" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="Field Attribute : States" enabled="true">states={'${draft}':[('readonly',${False})]}
+	description="Field Attribute : States" enabled="true">states = {'${draft}':[('readonly',${False})]}, 
 </template>
 
 <template name="fields.binary" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.binary" enabled="true">'${file}':fields.binary('${Label}', filters=${None}), 
+	description="fields.binary" enabled="true">'${field_name}':fields.binary('${Label}', filters = ${None}),  
 </template>
 
 <template name="fields.boolean" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.boolean" enabled="true">'${name}':fields.boolean('${Label}', required=${False}), 
+	description="fields.boolean" enabled="true">'${name}':fields.boolean('${Label}'), 
 </template>
 
 <template name="fields.char" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.char" enabled="true">'${name}':fields.char('${Label}', size=${64}, required=${False}, readonly=${False}),
+	description="fields.char" enabled="true">'${name}':fields.char('${Label}', size = ${64}, required=${False}), 
 </template>
 
 <template name="fields.date" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.date" enabled="true">'${date}': fields.date('${Date}'), 
+	description="fields.date" enabled="true">'${date_field}': fields.date('${Date}'), 
 </template>
 
 <template name="fields.datetime" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
@@ -255,11 +255,11 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 </template>
 
 <template name="fields.float" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.float" enabled="true">'${number}': fields.float('${Label}', digits=(${16}, int(config['price_accuracy'])),
+	description="fields.float" enabled="true">'${number}': fields.float('${Label}', digits = (${16}, int(config['price_accuracy'])),
 </template>
 
 <template name="fields.function" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.function" enabled="true">'${data}': fields.function(${_function_call}, method=True, type='${float}' string='${Label}', store=${True}), 
+	description="fields.function" enabled="true">'${data}': fields.function(${_function_call}, method = True, type = '${float}' string = '${Label}', store = ${True}), 
 </template>
 
 <template name="fields.integer" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
@@ -271,47 +271,47 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 </template>
 
 <template name="fields.many2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.many2many" enabled="true">'${data}_ids':fields.one2many('${model_name}', '${partner}_${category}_rel', ${model1}_id', ${model2}_id', ${Label}'), 
+	description="fields.many2many" enabled="true">'${data}_ids':fields.many2many('${model_name}', '${partner}_${category}_rel', '${model1}_id', '${model2}_id', '${Label}'), 
 </template>
 
 <template name="fields.many2one" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.many2one" enabled="true">'${data}_id':fields.many2one('${model_name}', '${Label}', required=${False}), 
+	description="fields.many2one" enabled="true">'${data}_id':fields.many2one('${model_name}', '${Label}'), 
 </template>
 
 <template name="fields.one2many" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.one2many" enabled="true">'${data}_ids':fields.one2many('${model_name}', '${field}_id', '${Label}', required=${False}),
+	description="fields.one2many" enabled="true">'${data}_ids':fields.one2many('${model_name}', '${field}_id', '${Label}'),
 </template>
 
 <template name="fields.property" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
 	description="fields.property" enabled="true">'property_${name}': fields.property( 
 	'${model_name}',
-	type='${many2one}',
-	relation='${model_name}',
-	string='${Label}',
-	method=True,
-	view_load=True,
-	domain='[('${state}','=','${done}')]',
-	help="${Helpdescrip}"
-	required=${10:True}),
+	type = '${many2one}',
+	relation = '${model_name}',
+	string = '${Label}',
+	method = True,
+	view_load = True,
+	domain = [('${state}', '=', '${done}')],
+	help = "${Helpdescrip}",
+	required = ${10:True}),
 </template>
 
 <template name="fields.reference" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
 	description="fields.reference" enabled="true">'${ref}': fields.reference('${Document}', 
-	selection=[
+	selection = [
 	#TODO : define list of model and Label that will be work as a reference
 	('account.account', 'Account'),
-	], size=${128}),
+	], size = ${128}),
 </template>
 
 <template name="fields.related" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
-	description="fields.related" enabled="true">'${field}_id': fields.related('${relation_field}','${field}_id', type='${many2one}', relation='${model_name}', string=${Label}'), 
+	description="fields.related" enabled="true">'${field}_id': fields.related('${relation_field}','${field}_id', type = '${many2one}', relation = '${model_name}', string = ${Label}'), 
 </template>
 
 <template name="fields.selection" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
 	description="fields.selection : [(draft, Draft)]" enabled="true">'${state}':fields.selection([
 	('draft','Draft'),
 	('done','Done'),
-	 ],	'${State}', select=True, readonly=${True}),
+	 ],	'${State}', select = True, readonly = ${True}),
 </template>
 
 <template name="fields.selection [def _select_data]" autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" 
@@ -338,7 +338,7 @@ _constraints = [(${_check_constraints_method}, '${Error_Message}', ['${field_nam
 
 class ${ClassName}(osv.osv):
 	_name = '${model_name}'
-	_description = '${model_name}'
+	_description = '${model_description}'
  
 	_columns = {
 			'${name}':fields.char('${data}', size={64}, required={False}, readonly={False}),
